@@ -9,7 +9,7 @@ public class A1Novice {
 		Scanner scan = new Scanner(System.in);
 		// Your code follows here.
 		
-		System.out.println("Enter the number of customers:");
+		//System.out.println("Enter the number of customers:");
 		int customernum = scan.nextInt();
 		
 		//String[] data = new String[customernum];
@@ -19,27 +19,27 @@ public class A1Novice {
 			
 			//String[] values = new String[2];
 				
-				System.out.println("Enter First Name:");
+				//System.out.println("Enter First Name:");
 				String first = scan.next();
 				
-				System.out.println("Enter Last Name:");
+				//System.out.println("Enter Last Name:");
 				String last = scan.next();
 				
 				
-				System.out.println("Enter Total Number of Items Purchased:");
+				//System.out.println("Enter Total Number of Items Purchased:");
 				int quantity = scan.nextInt();
 				
 				double total = 0;
 			
 				for(int z=0; z<quantity; z++) {
 				
-					System.out.println("Enter quantity of item:");
+					//System.out.println("Enter quantity of item:");
 					int itemquantity = scan.nextInt();
 					
-					System.out.println("Enter item name:");
+					//System.out.println("Enter item name:");
 					String itemname = scan.next();
 					
-					System.out.println("Enter item price");
+					//System.out.println("Enter item price");
 					double itemprice = scan.nextDouble();
 					
 					total = total + itemprice*itemquantity;
