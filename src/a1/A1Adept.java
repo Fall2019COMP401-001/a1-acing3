@@ -12,10 +12,10 @@ public class A1Adept {
 		
 		int storeItems = scan.nextInt();
 		String[] itemNameData = new String[storeItems];
-		int[] itemPriceData = new int[storeItems];
+		double[] itemPriceData = new double[storeItems];
 		for (int i=0; i<storeItems; i++) {
 			itemNameData[i] = scan.next();
-			itemPriceData[i] = scan.nextInt();
+			itemPriceData[i] = scan.nextDouble();
 		}
 		int customernum = scan.nextInt();
 			double max = 0;
