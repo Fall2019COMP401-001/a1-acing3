@@ -32,7 +32,7 @@ public class A1Adept {
 				
 				int quantity = scan.nextInt();
 				
-				double total = 0;
+				double total = 0.00;
 			
 				for(int z=0; z<quantity; z++) {
 				
@@ -42,10 +42,10 @@ public class A1Adept {
 					
 					for (int j=0; j<itemNameData.length; j++) {
 						if(itemname == itemNameData[i]) {
-							total += itemPriceData[i]*itemquantity;
+							total = total + itemPriceData[i]*itemquantity;
 						}
 					}
-				paidforData[i] = total;
+					paidforData[i] = total;
 					
 				};
 					
