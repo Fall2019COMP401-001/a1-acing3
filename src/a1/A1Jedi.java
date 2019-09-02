@@ -3,7 +3,8 @@ package a1;
 import java.util.Scanner;
 
 public class A1Jedi {
-
+//Worked with Fayyaz & TAs on bugs and conceptual issues
+	
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
