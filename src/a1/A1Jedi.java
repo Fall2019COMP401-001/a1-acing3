@@ -23,6 +23,10 @@ public class A1Jedi {
 		
 		int[] itemPurch = new int[storeItems];
 		
+		int[] count = new int[storeItems];
+		
+		int[] countAtZero = new int[storeItems];
+		
 		for (int i=0; i<storeItems; i++) {
 			itemNameData[i] = scan.next();
 			itemPriceData[i] = scan.nextDouble();
@@ -56,10 +60,14 @@ public class A1Jedi {
 					//iteration for the price of the item
 					for (int j=0; j<itemNameData.length; j++) {
 						if(itemname.equals(itemNameData[j])) {
-							total += itemPriceData[j]*itemquantity;
+							count[j]+=1;
+							if(count[j]>1) {
+								itemPurch[j] += itemquantity;
+							} else {
 							cusPerItem[j] += 1;
 							itemPurch[j] += itemquantity;
-						}
+							}
+						}		
 					}
 					PriceData[i] = total;
 					
@@ -67,8 +75,7 @@ public class A1Jedi {
 					//System.out.println("Customer Info: " + NameOfCustomer[i] + " " + PriceData[i]);
 					
 				}
-				
-					
+				count = new int[storeItems];
 			}
 			
 	for (int i=0; i<storeItems; i++) {
