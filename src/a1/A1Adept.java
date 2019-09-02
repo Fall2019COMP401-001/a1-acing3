@@ -4,82 +4,108 @@ import java.util.Scanner;
 
 public class A1Adept {
 
+//Worked with Fayyaz & TAs' 
+	
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
 
 		// Your code follows here.
 		
+		double max = 0;
+		
+		double min = 100.00;
+		
+		
+		
+		//Store Inventory
+		
 		int storeItems = scan.nextInt();
+		
 		String[] itemNameData = new String[storeItems];
+		
 		double[] itemPriceData = new double[storeItems];
+		
 		for (int i=0; i<storeItems; i++) {
 			itemNameData[i] = scan.next();
 			itemPriceData[i] = scan.nextDouble();
 		}
+		
+		
+		//# of Customers
 		int customernum = scan.nextInt();
-			double max = 0;
-			double min = 100.00;
-			String[] firstData = new String[customernum];
-			String[] lastData = new String[customernum];
-			double[] paidforData = new double[customernum];
-			
+		
+		//Data for each customer
+		String[] NameOfCustomer = new String[customernum];
+		double[] PriceData = new double[customernum];
+		
+		//iteration for each customer
 			for (int i = 0; i<customernum; i++) {
-								
-				firstData[i] = scan.next();
+				double total = 0.00;				
+				NameOfCustomer[i] = scan.next() + " " + scan.next();
 				
-				lastData[i] = scan.next();
-				
+				//items purchased
 				int quantity = scan.nextInt();
-				
-				double total = 0.00;
 			
+				//iteration for each item
 				for(int z=0; z<quantity; z++) {
 				
+					//Amount of a specific item purchased
 					int itemquantity = scan.nextInt();				
 					
+					//Name of the specific Item
 					String itemname = scan.next();
 					
+					//iteration for the price of the item
 					for (int j=0; j<itemNameData.length; j++) {
-						if(itemname == itemNameData[i]) {
-							total = total + itemPriceData[i]*itemquantity;
+						if(itemname.equals(itemNameData[j])) {
+							total += itemPriceData[j]*itemquantity;
 						}
 					}
-					paidforData[i] = total;
+					PriceData[i] = total;
+					
+					//System.out.println("Customer Info: " + NameOfCustomer[i] + " " + PriceData[i]);
 					
 				};
+				
 					
 			}
+			
+			
+			
 			//max
 			int o = 0;
-			for (int k=0; k < paidforData.length; k++) {
-				if (paidforData[k] > max) {
-					max = paidforData[k];
-					
+			for (int i=0; i < PriceData.length; i++) {
+				if (PriceData[i] > max) {
+					max = PriceData[i];
+					o = i;
 				}
-				o = k;
+				
 			}
-			System.out.println("Biggest: " + firstData[o] + " " + lastData[o] + " (" + max + ")");
+			System.out.println("Biggest: " + NameOfCustomer[o] + " (" + String.format("%.2f", ((double) max)) + ")");
 			
 			//min
 			int l = 0;
-			for (int k=0; k < paidforData.length; k++) {
-				if (paidforData[k] < min) {
-					min = paidforData[k];
-					
+			for (int i=0; i < PriceData.length; i++) {
+				if (PriceData[i] < min) {
+					min = PriceData[i];
+					l = i;
 				}
-				l = k;
+				
 			}
-			System.out.println("Smallest: " + firstData[l] + " " + lastData[l] + " (" + min + ")");
+			System.out.println("Smallest: " + NameOfCustomer[l] + " (" + String.format("%.2f", ((double) min)) + ")");
 			
 			//Average
 			double average = 0;
-			for (int k=0; k < paidforData.length; k++) {
-				average = (average + paidforData[k])/paidforData.length;
+			double totalAverage;
+			for (int i=0; i < PriceData.length; i++) {
+				average += PriceData[i];
+				//average = (average + PriceData[i])/PriceData.length;
 			}
-			System.out.println("Average: " + average);
-			
+			totalAverage = average/PriceData.length;
+			System.out.println("Average: " + String.format("%.2f", ((double) totalAverage)));
 			
 	scan.close();
 	}
 }
+
